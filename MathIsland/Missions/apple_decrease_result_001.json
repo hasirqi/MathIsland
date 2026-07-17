@@ -1,0 +1,47 @@
+{
+  "id": "apple_decrease_result_001",
+  "schemaVersion": 1,
+  "title": "mission.apple.title",
+  "chapterID": "missing_apples",
+  "grade": 2,
+  "difficulty": 1,
+  "learningObjectives": [
+    {"id":"identify_decrease","title":"objective.identifyDecrease.title","description":"objective.identifyDecrease.description"},
+    {"id":"select_subtraction","title":"objective.selectSubtraction.title","description":"objective.selectSubtraction.description"},
+    {"id":"explain_reason","title":"objective.explainReason.title","description":"objective.explainReason.description"}
+  ],
+  "story": {
+    "scene": "fruit_shop",
+    "text": "story.apple.text",
+    "narration": "story.apple.narration",
+    "characters": [
+      {"id":"bear","name":"character.bear","symbol":"🐻"},
+      {"id":"rabbit","name":"character.rabbit","symbol":"🐰"}
+    ]
+  },
+  "quantities": {"initial":12,"change":5,"result":7,"unknown":"result"},
+  "relationship": {"type":"decrease","equation":"12 - 5 = 7","answer":7},
+  "informationItems": [
+    {"id":"initial","text":"info.initial","role":"known"},
+    {"id":"change","text":"info.change","role":"known"},
+    {"id":"question","text":"info.question","role":"question"}
+  ],
+  "representations": ["objects","equation"],
+  "equationChoices": [
+    {"id":"correct","expression":"12 - 5","isCorrect":true,"errorType":null},
+    {"id":"add","expression":"12 + 5","isCorrect":false,"errorType":"operationSelectionError"},
+    {"id":"reverse","expression":"5 - 12","isCorrect":false,"errorType":"equationOrderError"},
+    {"id":"wrong_subtract","expression":"12 - 7","isCorrect":false,"errorType":"unknownPositionConfusion"}
+  ],
+  "reasoningOptions": [
+    {"id":"correct_reason","text":"reason.correct","isCorrect":true},
+    {"id":"add_reason","text":"reason.add","isCorrect":false},
+    {"id":"size_reason","text":"reason.size","isCorrect":false}
+  ],
+  "hints": [
+    {"id":"h1","level":1,"text":"hint.1"},
+    {"id":"h2","level":2,"text":"hint.2"},
+    {"id":"h3","level":3,"text":"hint.3"},
+    {"id":"h4","level":4,"text":"hint.4"}
+  ]
+}
