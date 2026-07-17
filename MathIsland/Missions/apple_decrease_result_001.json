@@ -1,0 +1,47 @@
+{
+  "id": "apple_decrease_result_001",
+  "schemaVersion": 1,
+  "title": "消失的苹果",
+  "chapterID": "missing_apples",
+  "grade": 2,
+  "difficulty": 1,
+  "learningObjectives": [
+    {"id":"identify_decrease","title":"识别减少","description":"理解拿走后数量变少"},
+    {"id":"select_subtraction","title":"选择减法","description":"把减少关系转换为减法算式"},
+    {"id":"explain_reason","title":"说明理由","description":"说明为什么使用减法"}
+  ],
+  "story": {
+    "scene": "fruit_shop",
+    "text": "篮子里有12个苹果，小兔拿走了5个。篮子里还剩多少个？",
+    "narration": "先看看发生了什么，再决定怎么算。",
+    "characters": [
+      {"id":"bear","name":"小熊","symbol":"🐻"},
+      {"id":"rabbit","name":"小兔","symbol":"🐰"}
+    ]
+  },
+  "quantities": {"initial":12,"change":5,"result":7,"unknown":"result"},
+  "relationship": {"type":"decrease","equation":"12 - 5 = 7","answer":7},
+  "informationItems": [
+    {"id":"initial","text":"原来有12个苹果","role":"known"},
+    {"id":"change","text":"小兔拿走5个","role":"known"},
+    {"id":"question","text":"要解决还剩多少个","role":"question"}
+  ],
+  "representations": ["objects","equation"],
+  "equationChoices": [
+    {"id":"correct","expression":"12 - 5","isCorrect":true,"errorType":null},
+    {"id":"add","expression":"12 + 5","isCorrect":false,"errorType":"operationSelectionError"},
+    {"id":"reverse","expression":"5 - 12","isCorrect":false,"errorType":"equationOrderError"},
+    {"id":"wrong_subtract","expression":"12 - 7","isCorrect":false,"errorType":"unknownPositionConfusion"}
+  ],
+  "reasoningOptions": [
+    {"id":"correct_reason","text":"因为小兔拿走了5个，苹果变少了，所以要用减法。","isCorrect":true},
+    {"id":"add_reason","text":"因为又来了5个苹果，所以要用加法。","isCorrect":false},
+    {"id":"size_reason","text":"因为数字12比5大，所以直接用减法。","isCorrect":false}
+  ],
+  "hints": [
+    {"id":"h1","level":1,"text":"看看小兔对苹果做了什么。"},
+    {"id":"h2","level":2,"text":"苹果现在比原来多，还是少？"},
+    {"id":"h3","level":3,"text":"把小兔拿走的苹果移到篮子外面。"},
+    {"id":"h4","level":4,"text":"数量变少时，可以考虑使用减法。"}
+  ]
+}
