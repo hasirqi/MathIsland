@@ -10,33 +10,46 @@ struct ContentView: View {
             VStack(spacing: 28) {
                 Spacer()
                 Text("🏝️").font(.system(size: 86))
-                Text("小小调查员：数字岛").font(.largeTitle.bold())
-                Text("先弄清楚发生了什么，再决定怎么算。")
-                    .font(.title3).foregroundStyle(.secondary)
+                Text(L10n.text("app.title")).font(.largeTitle.bold())
+                Text(L10n.text("app.subtitle"))
+                    .font(.title3)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
 
                 if let mission {
                     NavigationLink {
                         MissionFlowView(mission: mission, playerID: playerID)
                     } label: {
-                        Label("开始苹果调查", systemImage: "apple.logo")
+                        Label(L10n.text("home.startAppleMission"), systemImage: "apple.logo")
                             .frame(maxWidth: 320)
                     }
-                    .buttonStyle(.borderedProminent).controlSize(.large)
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
                 } else if let loadError {
-                    ContentUnavailableView("任务加载失败", systemImage: "exclamationmark.triangle", description: Text(loadError))
+                    ContentUnavailableView(
+                        L10n.text("home.loadFailed"),
+                        systemImage: "exclamationmark.triangle",
+                        description: Text(loadError)
+                    )
                 } else {
-                    ProgressView("正在准备任务…")
+                    ProgressView(L10n.text("home.preparing"))
                 }
 
-                NavigationLink("家长查看") { ParentDashboardView() }
-                    .buttonStyle(.bordered).controlSize(.large)
+                NavigationLink(L10n.text("home.parentDashboard")) {
+                    ParentDashboardView()
+                }
+                .buttonStyle(.bordered)
+                .controlSize(.large)
                 Spacer()
             }
             .padding(32)
             .task {
                 guard mission == nil else { return }
-                do { mission = try MissionContentLoader().loadMission(id: "apple_decrease_result_001") }
-                catch { loadError = error.localizedDescription }
+                do {
+                    mission = try MissionContentLoader().loadMission(id: "apple_decrease_result_001")
+                } catch {
+                    loadError = error.localizedDescription
+                }
             }
         }
     }
