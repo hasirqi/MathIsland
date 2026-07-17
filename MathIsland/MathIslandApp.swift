@@ -1,17 +1,10 @@
-//
-//  MathIslandApp.swift
-//  MathIsland
-//
-//  Created by aiagent_master on 2026/07/18.
-//
-
 import SwiftUI
+import SwiftData
 
 @main
 struct MathIslandApp: App {
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+        WindowGroup { ContentView() }
+            .modelContainer(for: [PlayerProfileEntity.self, LearningRecordEntity.self, SkillMasteryEntity.self])
     }
 }
